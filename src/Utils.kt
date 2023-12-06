@@ -6,7 +6,7 @@ import kotlin.io.path.readLines
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = Path("src/$name.txt").readLines()
+fun readInput(name: String): List<String> = Path("src/${name.removeSuffix(".txt")}.txt").readLines()
 
 fun <E> List<E>.split(separator: E): List<List<E>> {
     val result = mutableListOf<List<E>>()
@@ -24,3 +24,5 @@ fun <E> List<E>.split(separator: E): List<List<E>> {
     }
     return result
 }
+
+val WHITESPACE = Regex("\\s+")
